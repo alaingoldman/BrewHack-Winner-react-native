@@ -16,17 +16,9 @@ import Settings from './Settings';
 import Create from './Create';
 import Browse from './Browse';
 import MyParty from './MyParty';
-import Alcohol from './Alcohol';
-import Food from './Food';
+import ShareIt from './ShareIt';
 
-class Categories extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      loaded: false,
-      hidden: false,
-    }
-  }
+class Alcohol2 extends React.Component {
 
   _handleChange(x, event) {
     var newState = {};
@@ -44,9 +36,7 @@ class Categories extends React.Component {
     this.props.navigator.pop();
   }
 
-  componentDidMount() {
-    // this._fetchApiData();
-  }
+
 
   _handlePress(){
     alert("clicked");
@@ -66,28 +56,27 @@ class Categories extends React.Component {
     //   })
   }
   render() {
+    let Content = <Image style={styles.full} resizeMode="stretch" source={require('./p2.png')}>
+    </Image>;
+
+
     const leftButtonConfig = <Text style={styles.whiteArrow} onPress={this._goBack.bind(this)} > {'<'} </Text>
 
-
-      const rightButtonConfig = 
-        <View>
-          <TouchableHighlight
-              activeOpacity={1}
-              underlayColor='transparent'>
-              <Image resizeMode="cover"
-                source={require('./searchdark.png')} style={styles.search}/>
-          </TouchableHighlight>
-        </View>;
-    const titleConfig =
+    const rightButtonConfig = 
       <View>
-          <Text style={styles.navTitleText}>Categories</Text>
+        <TouchableHighlight
+            onPress={this._linker.bind(this, ShareIt)}
+            activeOpacity={1}
+            underlayColor='transparent'>
+            <Text> Next </Text>
+        </TouchableHighlight>
       </View>;
 
-    let loading = <View><Text>loading...</Text></View>;
-    if (this.state.loaded) {
-      loading = <View>
-          <Text>it loaded dude</Text>
-          </View>;}
+    const titleConfig =
+      <View>
+          <Text style={styles.navTitleText}>Alcohol</Text>
+      </View>;
+
 
     const navigationView = (
         <Image source={require('./dash.png')} style={styles.container}>
@@ -106,7 +95,6 @@ class Categories extends React.Component {
     return(
       <View style={styles.contain}>
         <StatusBar
-        hidden={this.state.hidden}
         backgroundColor="blue"
         barStyle="default"/>
         <NavigationBar
@@ -117,77 +105,7 @@ class Categories extends React.Component {
             rightButton={rightButtonConfig}/>
         
         <View style={styles.pager}>
-        <TouchableHighlight
-                onPress={this._linker.bind(this, Alcohol)}
-                underlayColor='transparent'
-                activeOpacity={1}
-                style={styles.quad}>
-          <View style={styles.quad}>
-              <Image source={require('./Alcohol.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Alcohol
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  onPress={this._linker.bind(this, Food)}
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadb}>
-          <View style={styles.quadb}>
-              <Image source={require('./Food.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Food
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadc}>
-          <View style={styles.quadc}>
-              <Image source={require('./Cups.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Cups
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadd}>
-          <View style={styles.quadd}>
-              <Image source={require('./Chasers.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Chasers
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-        </TouchableHighlight>
-
+          {Content}
         </View>
       </View>
     )
@@ -197,6 +115,27 @@ class Categories extends React.Component {
 
 
 var styles = StyleSheet.create({
+  full: {
+    width: null,
+    height: null,
+    flex: 1,
+  },
+  loader: {
+    width: 290,
+    height: 290,
+    marginTop: 105,
+    marginBottom: 15,
+    backgroundColor: "red",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+  ltext:{
+    color: "rgb(102,102,102)",
+    alignSelf: "center",
+    fontSize: 20,
+    marginTop: -100,
+    marginLeft: 20,
+  },
   topText: {
     fontSize: 28,
     fontFamily: 'Avenir',
@@ -256,6 +195,10 @@ var styles = StyleSheet.create({
     alignItems: "stretch",
   },
   pager: {
+    flex: 1,
+    alignItems: "stretch",
+  },
+  pager2: {
     flex: 1,
     backgroundColor: "rgb(248,248,248)",
     alignItems: "stretch",
@@ -321,4 +264,4 @@ var styles = StyleSheet.create({
     flex: 1,
   }
 });
-export default Categories;
+export default Alcohol2;

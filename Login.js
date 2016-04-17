@@ -75,12 +75,12 @@ class Login extends React.Component {
 				<View style={styles.wrap}>
 			  	    <Image 
 			  	      resizeMode="cover"
-			  	      source={require('./logoalt.png')} 
+			  	      source={require('./logogreen.png')} 
 			  	      style={styles.logo}/>
 			  		<View style={styles.introTextWrap}>
-			  			<Text style={styles.introText}>
-			  				Lootfly is the premier marketplace for fashion
-			  			</Text>
+			  		<Text style={styles.logoTxt}>
+			  			BYOP
+			  		</Text>
 			  		</View>
 			  	  	<Text style={styles.alert}>
 			  	  	 	{this.state.alert}
@@ -128,10 +128,17 @@ class Login extends React.Component {
 
 
 var styles = StyleSheet.create({
+  logoTxt: {
+  	color: "white",
+  	fontWeight: "bold",
+  	fontSize: 39,
+  	marginTop: -35,
+  },
   logo: {
   	alignSelf: "center",
-  	width: 40,
-  	height: 40,
+  	width: 70,
+  	height: 90,
+  	marginLeft: -8,
   	marginTop: 25,
   },
   introText: {
@@ -179,7 +186,7 @@ var styles = StyleSheet.create({
   	height: 12,
   },
   butt: {
-  	backgroundColor: "white",
+  	backgroundColor: "rgb(80,227,194)",
   	marginTop: 17,
   	height: 40,
   	justifyContent: 'center',

@@ -16,15 +16,15 @@ import Settings from './Settings';
 import Create from './Create';
 import Browse from './Browse';
 import MyParty from './MyParty';
-import Alcohol from './Alcohol';
-import Food from './Food';
+import Alcohol2 from './Alcohol2';
 
-class Categories extends React.Component {
+class Alcohol extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       loaded: false,
       hidden: false,
+      products: [],
     }
   }
 
@@ -45,7 +45,32 @@ class Categories extends React.Component {
   }
 
   componentDidMount() {
-    // this._fetchApiData();
+    this._fetchApiData();
+  }
+
+  _fetchApiData(){
+    fetch('https://delivery.com/api/data/search?search_type=alcohol&limit=10&address=1006+Avenue+of+the+Americas,10018&order_time=ASAP&order_type=delivery&client_id=brewhacks2016&section=beer', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((res) => {
+      var newState = {};
+      newState["loaded"] = true;
+      let x = JSON.parse(res._bodyInit).data;
+      let keys = Object.keys(x.products);
+      let productArray = [];
+      for(let i = 0;i < keys.length; i++){
+        productArray.push(x.products[keys[i]]);
+      }
+
+      for(var y = 0; y < productArray.length; y++){
+        console.log(productArray[y].price,productArray[y].name)
+      }
+      return this.setState(newState);
+    })
   }
 
   _handlePress(){
@@ -66,28 +91,36 @@ class Categories extends React.Component {
     //   })
   }
   render() {
+    let Content = <View><Image style={styles.loader} resizeMode="cover" source={require('./loading.gif')} /><Text style={styles.ltext}>loading...</Text></View>;
+    if (this.state.loaded){
+      Content = 
+      <TouchableHighlight 
+      style={styles.full}
+      onPress={this._linker.bind(this, Alcohol2)}
+      underlayColor='transparent'>
+          <Image style={styles.full} resizeMode="stretch" source={require('./p1.png')}>
+          </Image>
+      </TouchableHighlight>
+    }
+
     const leftButtonConfig = <Text style={styles.whiteArrow} onPress={this._goBack.bind(this)} > {'<'} </Text>
 
 
-      const rightButtonConfig = 
-        <View>
-          <TouchableHighlight
-              activeOpacity={1}
-              underlayColor='transparent'>
-              <Image resizeMode="cover"
-                source={require('./searchdark.png')} style={styles.search}/>
-          </TouchableHighlight>
-        </View>;
-    const titleConfig =
+    const rightButtonConfig = 
       <View>
-          <Text style={styles.navTitleText}>Categories</Text>
+        <TouchableHighlight
+            activeOpacity={1}
+            underlayColor='transparent'>
+            <Image resizeMode="cover"
+              source={require('./searchdark.png')} style={styles.search}/>
+        </TouchableHighlight>
       </View>;
 
-    let loading = <View><Text>loading...</Text></View>;
-    if (this.state.loaded) {
-      loading = <View>
-          <Text>it loaded dude</Text>
-          </View>;}
+    const titleConfig =
+      <View>
+          <Text style={styles.navTitleText}>Alcohol</Text>
+      </View>;
+
 
     const navigationView = (
         <Image source={require('./dash.png')} style={styles.container}>
@@ -117,77 +150,7 @@ class Categories extends React.Component {
             rightButton={rightButtonConfig}/>
         
         <View style={styles.pager}>
-        <TouchableHighlight
-                onPress={this._linker.bind(this, Alcohol)}
-                underlayColor='transparent'
-                activeOpacity={1}
-                style={styles.quad}>
-          <View style={styles.quad}>
-              <Image source={require('./Alcohol.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Alcohol
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  onPress={this._linker.bind(this, Food)}
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadb}>
-          <View style={styles.quadb}>
-              <Image source={require('./Food.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Food
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadc}>
-          <View style={styles.quadc}>
-              <Image source={require('./Cups.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Cups
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadd}>
-          <View style={styles.quadd}>
-              <Image source={require('./Chasers.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Chasers
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-        </TouchableHighlight>
-
+          {Content}
         </View>
       </View>
     )
@@ -197,6 +160,33 @@ class Categories extends React.Component {
 
 
 var styles = StyleSheet.create({
+  quad: {
+    flex:3,
+    borderBottomWidth: 1,
+    borderColor: "#ddd",
+    alignItems: "stretch",
+  },
+  full: {
+    width: null,
+    height: null,
+    flex: 1,
+  },
+  loader: {
+    width: 290,
+    height: 290,
+    marginTop: 105,
+    marginBottom: 15,
+    backgroundColor: "red",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+  ltext:{
+    color: "rgb(102,102,102)",
+    alignSelf: "center",
+    fontSize: 20,
+    marginTop: -100,
+    marginLeft: 20,
+  },
   topText: {
     fontSize: 28,
     fontFamily: 'Avenir',
@@ -256,6 +246,10 @@ var styles = StyleSheet.create({
     alignItems: "stretch",
   },
   pager: {
+    flex: 1,
+    alignItems: "stretch",
+  },
+  pager2: {
     flex: 1,
     backgroundColor: "rgb(248,248,248)",
     alignItems: "stretch",
@@ -321,4 +315,4 @@ var styles = StyleSheet.create({
     flex: 1,
   }
 });
-export default Categories;
+export default Alcohol;

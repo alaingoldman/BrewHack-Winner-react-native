@@ -12,6 +12,7 @@
     "react-native": "^0.21.0",
     "react-native-drawer-layout": "^0.4.2",
     "react-native-navbar": "^1.4.0",
+    "react-native-swipeout": "^2.0.12",
     "underscore": "^1.8.3"
   }
 }

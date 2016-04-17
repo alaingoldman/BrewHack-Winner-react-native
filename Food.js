@@ -16,10 +16,8 @@ import Settings from './Settings';
 import Create from './Create';
 import Browse from './Browse';
 import MyParty from './MyParty';
-import Alcohol from './Alcohol';
-import Food from './Food';
 
-class Categories extends React.Component {
+class Food extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -80,7 +78,7 @@ class Categories extends React.Component {
         </View>;
     const titleConfig =
       <View>
-          <Text style={styles.navTitleText}>Categories</Text>
+          <Text style={styles.navTitleText}>Food</Text>
       </View>;
 
     let loading = <View><Text>loading...</Text></View>;
@@ -117,77 +115,6 @@ class Categories extends React.Component {
             rightButton={rightButtonConfig}/>
         
         <View style={styles.pager}>
-        <TouchableHighlight
-                onPress={this._linker.bind(this, Alcohol)}
-                underlayColor='transparent'
-                activeOpacity={1}
-                style={styles.quad}>
-          <View style={styles.quad}>
-              <Image source={require('./Alcohol.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Alcohol
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  onPress={this._linker.bind(this, Food)}
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadb}>
-          <View style={styles.quadb}>
-              <Image source={require('./Food.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Food
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadc}>
-          <View style={styles.quadc}>
-              <Image source={require('./Cups.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Cups
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-          </TouchableHighlight>
-          <TouchableHighlight
-                  underlayColor='transparent'
-                  activeOpacity={1}
-                  style={styles.quadd}>
-          <View style={styles.quadd}>
-              <Image source={require('./Chasers.png')} resizeMode="cover" style={styles.imgFix}>
-                <View style={styles.shift}>
-                <Text style={styles.topText}>
-                  Chasers
-                </Text>
-                <Text style={styles.midText}>
-                  35 items
-                </Text>
-                </View>
-              </Image>
-          </View>
-        </TouchableHighlight>
-
         </View>
       </View>
     )
@@ -321,4 +248,4 @@ var styles = StyleSheet.create({
     flex: 1,
   }
 });
-export default Categories;
+export default Food;

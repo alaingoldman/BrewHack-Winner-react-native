@@ -16,6 +16,7 @@ import DrawerLayout from 'react-native-drawer-layout';
 import Settings from './Settings';
 import MyParty from './MyParty';
 import Brose from './Browse';
+import Categories from './Categories';
 import Suggested from './Suggested';
 
 class Create extends React.Component {
@@ -121,7 +122,7 @@ class Create extends React.Component {
           <View style={styles.siteWrap}>
             <Image 
               resizeMode="stretch"
-              source={require('./logoalt.png')} 
+              source={require('./logogreen.png')} 
               style={styles.logo}/>
             <Text style={styles.sidebarLink} onPress={this._linker.bind(this, Create)}> Create </Text>
             <Text style={styles.sidebarLink} onPress={this._linker.bind(this, MyParty)}> My Party </Text>
@@ -150,7 +151,7 @@ class Create extends React.Component {
             leftButton={leftButtonConfig} />
         </Image>
         <View style={styles.bump2}>
-          <Text style={styles.infoText}>Lorem ipsum dolar sit amit</Text>
+          <Text style={styles.infoText}>Tell us about your party</Text>
           <TextInput 
                 style={styles.input} 
                 onChange={this._handleChange.bind(this,"title")}
@@ -202,7 +203,7 @@ class Create extends React.Component {
                   paddingLeft: 22,
                   paddingRight: 22,}}/>
           <TouchableHighlight
-              onPress={this._handlePress.bind(this)}
+              onPress={this._linker.bind(this, Categories)}
               underlayColor='#50e3c2'
               style={styles.butt}
               activeOpacity={1}>
@@ -210,9 +211,9 @@ class Create extends React.Component {
               MAKE CUSTOM
             </Text>
           </TouchableHighlight>
-          <Text style={styles.crypt}> Or use one of our preset party packages?</Text>
+          <Text style={styles.crypt}> Or choose from our premade sugggested party list</Text>
           <TouchableHighlight
-              onPress={this._handlePress.bind(this)}
+              onPress={this._linker.bind(this, Suggested)}
               underlayColor='#50e3c2'
               style={styles.butt2}
               activeOpacity={1}>
@@ -231,7 +232,7 @@ class Create extends React.Component {
 
 var styles = StyleSheet.create({
   crypt:{
-    marginTop: 24,
+    marginTop: 8,
     color: "#777",
     alignSelf: "center",
   },
@@ -290,10 +291,10 @@ var styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 50,
     marginTop: 90,
-    marginBottom: 15,
+    marginBottom: 10,
   },
   burger: {
     marginLeft: 13,

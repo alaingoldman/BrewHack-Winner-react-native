@@ -15,9 +15,11 @@ import DrawerLayout from 'react-native-drawer-layout';
 import Settings from './Settings';
 import Create from './Create';
 import Browse from './Browse';
+import MyParty from './MyParty';
+import G1 from './G1';
+import G2 from './G2';
 
-
-class MyParty extends React.Component {
+class ShareIt extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -58,7 +60,6 @@ class MyParty extends React.Component {
     const leftButtonConfig = 
       <View>
         <TouchableHighlight
-            onPress={this._openShelf.bind(this)}
             activeOpacity={1}
             underlayColor='transparent'>
             <Image resizeMode="cover"
@@ -102,9 +103,15 @@ class MyParty extends React.Component {
             title={titleConfig}
             tintColor="white"
             leftButton={leftButtonConfig} />
-            <Image style={styles.full} resizeMode="stretch" source={require('./mp1.png')}>
-
+            <TouchableHighlight 
+            onPress={this._linker.bind(this, G2)}
+            activeOpacity={1}
+            underlayColor='transparent'
+            style={styles.full}>
+            <Image style={styles.full} resizeMode="stretch" source={require('./g1.png')}>
             </Image>
+            </TouchableHighlight>
+
         </View>
       </DrawerLayout>
     )
@@ -169,4 +176,4 @@ var styles = StyleSheet.create({
     flex: 1,
   }
 });
-export default MyParty;
+export default ShareIt;
