@@ -27,6 +27,7 @@ class Create extends React.Component {
       title: "",
       venue: "",
       date: "",
+      // this is a bit redundant no ?
       borderColorA: "#E9E9E9",
       borderColorB: "#E9E9E9",
       borderColorC: "#E9E9E9",
@@ -47,20 +48,6 @@ class Create extends React.Component {
 
 
   _handlePress(){
-    // ddpClient.initialize()
-    //   .then((res) => {
-    //     return Accounts.signIn(
-    //       this.state.email.toLowerCase(), 
-    //       this.state.password );
-    //   })
-    //   .then((res) => {
-    //     this.props.navigator.immediatelyResetRouteStack([{component: Create}]);
-    //   })
-    //   .catch((err) => {
-    //     var newState = {};
-    //     newState["alert"] = err.reason;
-    //     return this.setState(newState);
-    //   })
     this._linker(Suggested);
   }
 
@@ -84,6 +71,7 @@ class Create extends React.Component {
   }
 
   _onFocus(letter) {
+    // this is a bit redundant no ?
     var newState = {};
     if(letter == "A"){
       newState["borderColorA"] = "rgb(168,239,218)";

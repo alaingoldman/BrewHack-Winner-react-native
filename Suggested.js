@@ -42,31 +42,12 @@ class Suggested extends React.Component {
     this.props.navigator.pop();
   }
 
-  componentDidMount() {
-    // this._fetchApiData();
-  }
-
   _handlePress(){
     alert("clicked");
-    // ddpClient.initialize()
-    //   .then((res) => {
-    //     return Accounts.signIn(
-    //       this.state.email.toLowerCase(), 
-    //       this.state.password );
-    //   })
-    //   .then((res) => {
-    //     this.props.navigator.immediatelyResetRouteStack([{component: Create}]);
-    //   })
-    //   .catch((err) => {
-    //     var newState = {};
-    //     newState["alert"] = err.reason;
-    //     return this.setState(newState);
-    //   })
+
   }
   render() {
     const leftButtonConfig = <Text style={styles.whiteArrow} onPress={this._goBack.bind(this)} > {'<'} </Text>
-
-
       const rightButtonConfig = 
         <View>
           <TouchableHighlight
@@ -169,8 +150,6 @@ class Suggested extends React.Component {
     )
   }
 };
-
-
 
 var styles = StyleSheet.create({
   topText: {
