@@ -8,6 +8,7 @@ var {
   TextInput,
   TouchableHighlight,
   Image,
+  StatusBar,
 } = React;
 
 import Login from './Login';
@@ -70,6 +71,10 @@ class ResetPass extends React.Component {
 				    title={titleConfig}
 				    tintColor="transparent"
 				    leftButton={leftButtonConfig} />
+        <StatusBar
+            backgroundColor="blue"
+            barStyle="light-content"
+          />
 				</View>
 				<View style={styles.midder}>
   		  	<Text style={styles.alert}>

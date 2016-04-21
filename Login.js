@@ -7,6 +7,7 @@ var {
   StyleSheet,
   TextInput,
   TouchableHighlight,
+  StatusBar,
   Image,
 } = React;
 
@@ -72,6 +73,10 @@ class Login extends React.Component {
 				<NavigationBar
 				  title={titleConfig}
 				  tintColor="transparent"/>
+				<StatusBar
+				    backgroundColor="blue"
+				    barStyle="light-content"
+				  />
 				<View style={styles.wrap}>
 			  	    <Image 
 			  	      resizeMode="cover"

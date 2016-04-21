@@ -7,6 +7,7 @@ var {
   StyleSheet,
   TextInput,
   TouchableHighlight,
+  StatusBar,
   Image,
 } = React;
 
@@ -84,6 +85,10 @@ class Register extends React.Component {
 				    title={titleConfig}
 				    tintColor="transparent"
 				    leftButton={leftButtonConfig} />
+				<StatusBar
+				    backgroundColor="blue"
+				    barStyle="light-content"
+				  />
 				</View>
 				<View style={styles.midder}>
 					<View style={styles.wrap}>
