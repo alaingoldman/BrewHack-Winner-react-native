@@ -49,6 +49,7 @@ class Alcohol extends React.Component {
   }
 
   _fetchApiData(){
+    // YOU DONT HANDLE FAILURE OR LACK OF SERVICE !!!!!!!!!!
     fetch('https://delivery.com/api/data/search?search_type=alcohol&limit=10&address=1006+Avenue+of+the+Americas,10018&order_time=ASAP&order_type=delivery&client_id=brewhacks2016&section=beer', {
       method: 'GET',
       headers: {
@@ -75,20 +76,6 @@ class Alcohol extends React.Component {
 
   _handlePress(){
     alert("clicked");
-    // ddpClient.initialize()
-    //   .then((res) => {
-    //     return Accounts.signIn(
-    //       this.state.email.toLowerCase(), 
-    //       this.state.password );
-    //   })
-    //   .then((res) => {
-    //     this.props.navigator.immediatelyResetRouteStack([{component: Create}]);
-    //   })
-    //   .catch((err) => {
-    //     var newState = {};
-    //     newState["alert"] = err.reason;
-    //     return this.setState(newState);
-    //   })
   }
   render() {
     let Content = <View><Image style={styles.loader} resizeMode="cover" source={require('./loading.gif')} /><Text style={styles.ltext}>loading...</Text></View>;
