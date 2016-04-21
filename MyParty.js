@@ -150,6 +150,7 @@ var styles = StyleSheet.create({
     marginLeft: 13,
     height: 20,
     width: 20,
+    marginTop: 10,
   },
   container: {
     flex: 1,

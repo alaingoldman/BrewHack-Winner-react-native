@@ -246,6 +246,7 @@ var styles = StyleSheet.create({
     fontSize: 22,
     marginTop: -5,
     marginLeft: 10,
+    marginTop: 6,
   },
   moveOver:{
     flex: 1,
