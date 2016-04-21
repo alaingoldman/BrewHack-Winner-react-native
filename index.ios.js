@@ -10,7 +10,6 @@ var {
 
 
 import Login from './Login';
-import NavigationBar from 'react-native-navbar'; // for better navbar control
 global.process = require("./process.polyfill");
 
 
@@ -31,10 +30,6 @@ class AppWrapper extends React.Component{
 
     return(
       <View style={styles.container}>
-      <StatusBar
-        backgroundColor="blue"
-        barStyle="light-content"
-      />
       <Navigator 
         initialRoute={initialRoute}
         renderScene={renderScene}  />

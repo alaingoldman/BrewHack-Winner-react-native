@@ -85,10 +85,10 @@ class Register extends React.Component {
 				    title={titleConfig}
 				    tintColor="transparent"
 				    leftButton={leftButtonConfig} />
-				<StatusBar
-				    backgroundColor="blue"
-				    barStyle="light-content"
-				  />
+				    <StatusBar
+				      backgroundColor="blue"
+				      hidden={true}
+				    />
 				</View>
 				<View style={styles.midder}>
 					<View style={styles.wrap}>
@@ -180,13 +180,12 @@ var styles = StyleSheet.create({
   whiteArrow: {
   	color: "white",
   	fontSize: 22,
-  	marginTop: -5,
   	marginLeft: 10,
   },
   navTitleText: {
   	color: "white",
   	fontSize: 18,
-  	marginBottom: 3.5,
+  	marginBottom: 13,
   },
   larger: {
     fontSize: 29,

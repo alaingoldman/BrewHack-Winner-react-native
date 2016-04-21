@@ -39,6 +39,9 @@ class Suggested extends React.Component {
   }
 
   _goBack(){
+    var newState = {};
+    newState["hidden"] = true;
+    this.setState(newState);
     this.props.navigator.pop();
   }
 

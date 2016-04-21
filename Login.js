@@ -73,9 +73,9 @@ class Login extends React.Component {
 				<NavigationBar
 				  title={titleConfig}
 				  tintColor="transparent"/>
-				<StatusBar
+				  <StatusBar
 				    backgroundColor="blue"
-				    barStyle="light-content"
+				    hidden={true}
 				  />
 				<View style={styles.wrap}>
 			  	    <Image 

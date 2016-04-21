@@ -23,7 +23,6 @@ class Create extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      hidden: false,
       title: "",
       venue: "",
       date: "",
@@ -52,15 +51,11 @@ class Create extends React.Component {
   }
 
   _openShelf(){
-    var newState = {};
-    newState["hidden"] = true;
     this.refs['DRAWER'].openDrawer();
-    return this.setState(newState);
   }
 
   _closeIt(){
     var newState = {};
-    newState["hidden"] = false;
     return this.setState(newState);
   }
 
@@ -127,9 +122,9 @@ class Create extends React.Component {
         drawerPosition={DrawerLayout.positions.Left}
         renderNavigationView={() => navigationView}>
         <StatusBar
-        hidden={this.state.hidden}
         backgroundColor="blue"
-        barStyle="light-content"/>
+        barStyle="light-content"
+        hidden={true}/>
         <View style={styles.contain}>
         <Image source={require('./party.png')} resizeMode="cover" style={styles.topImage}>
         <NavigationBar

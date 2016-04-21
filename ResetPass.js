@@ -7,8 +7,8 @@ var {
   StyleSheet,
   TextInput,
   TouchableHighlight,
-  Image,
   StatusBar,
+  Image,
 } = React;
 
 import Login from './Login';
@@ -72,9 +72,9 @@ class ResetPass extends React.Component {
 				    tintColor="transparent"
 				    leftButton={leftButtonConfig} />
         <StatusBar
-            backgroundColor="blue"
-            barStyle="light-content"
-          />
+          backgroundColor="blue"
+          hidden={true}
+        />
 				</View>
 				<View style={styles.midder}>
   		  	<Text style={styles.alert}>
@@ -142,15 +142,14 @@ var styles = StyleSheet.create({
   	marginTop: 17,
   },
   whiteArrow: {
-  	color: "white",
-  	fontSize: 22,
-  	marginTop: -5,
-  	marginLeft: 10,
+    color: "white",
+    fontSize: 22,
+    marginLeft: 10,
   },
   navTitleText: {
-  	color: "white",
-  	fontSize: 18,
-  	marginBottom: 3.5,
+    color: "white",
+    fontSize: 18,
+    marginBottom: 13,
   },
   larger: {
     fontSize: 29,
