@@ -43,7 +43,6 @@ class AppWrapper extends React.Component{
   }
 }
 
-// if this color is black the swipe effect will product a "shadowy" like feel
 var styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
