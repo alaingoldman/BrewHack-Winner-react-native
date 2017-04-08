@@ -1,3 +1,4 @@
 # BrewHack-Winner-react-native
 
-![appDesign](login.png)
+<img src="login.png" alt="appDesign" style="width: 250px;"/>
+
