@@ -1,3 +1,3 @@
 # BrewHack-Winner-react-native
 
-![appDesign](login.png | width=250x)
+![appDesign](login.png)
